@@ -1,0 +1,208 @@
+<title>{{title}}</title>
+<body>
+<div>{{debug|json}}</div>
+<section class="panel panel-primary" style="margin-bottom: 8px">
+  <div class="panel-heading">
+    Welcome!
+  </div>
+  <div class="panel-body" [innerHTML]="instructionsTop">  </div>
+
+  <div class="panel-footer">
+  <input required placeholder="Enter turkID after you have accepted/submitted the HIT, read the above instructions, and allowed popups always."
+         type="text" class="form-control"
+         [(ngModel)]="mturkID"
+         value="a"
+         name="mturkID_input"
+         #mturkID_input="ngModel"
+         style="height: 50px;">
+
+    <div [hidden]="mturkID_input.valid || mturkID_input.pristine"
+         class="alert alert-danger">
+      MTurk ID is required
+    </div>
+
+  <div  style="font-size:4rem; text-align: center;">
+  <input [disabled]="!mturkID_input.valid" type="button" class="btn btn-success"
+         style="width:100%; height: 50px;"
+         value="Begin" (click)="nextPage()">
+  </div>
+    </div>
+
+</section>
+<section class="panel panel-primary" style="margin-bottom: 8px">
+  <div class="panel-heading">
+    Experimental consent information
+  </div>
+  <div class="panel-body">
+  <div class=WordSection1>
+
+  <p class=MsoNormal><b><span style='letter-spacing:-.15pt'>Study Title: </span></b><span
+     style='font-size:11.0pt;font-family:"Cambria Math",serif'>Advancing Collective
+Innovation</span></p>
+
+  <p class=MsoNormal><b>&nbsp;</b></p>
+
+  <p class=MsoNormal><b>Principal Investigator:</b> <span style='color:black'>Dr.
+Steven Dow</span> </p>
+
+  <p class=MsoNormal><span style='letter-spacing:-.15pt'>_______________________________________________________________________________</span></p>
+
+  <p class=MsoNormal><span style='letter-spacing:-.15pt'>&nbsp;</span></p>
+
+  <p class=MsoNormal><b><span style='letter-spacing:-.15pt'>Purpose of this Study</span></b></p>
+
+  <p class=MsoNormal><span style='letter-spacing:-.15pt'>The purpose of this
+study is to evaluate tools and procedures doing collaborative brainstorming
+online. Please read this form and ask any questions that you have before
+agreeing to be in the study. The study is being conducted by Prof. Steven Dow
+from UC San Diego.</span></p>
+
+  <p class=MsoNormal><span style='letter-spacing:-.15pt'>&nbsp;</span></p>
+
+  <p class=MsoNormal><b><span style='letter-spacing:-.15pt'>Procedures </span></b></p>
+
+  <p class=MsoNormal><span style='letter-spacing:-.15pt'>Participants will
+perform individual and collaborative brainstorming tasks. This will involve
+reading information and viewing ideas related to an important social problem.
+You will work with a partner to improve your ideas. The work will take
+approximately 15 minutes. A few surveys will also collect a few demographic
+details. All participation is optional. You may drop out at any time.
+Participants will only receive compensation if they complete the task.</span></p>
+
+  <p class=MsoNormal><span style='letter-spacing:-.15pt'>&nbsp;</span></p>
+
+  <p class=MsoNormal><b><span style='letter-spacing:-.15pt'>Participant
+Requirements </span></b></p>
+
+  <p class=MsoNormal><span style='letter-spacing:-.15pt'>To participate in this
+study, we ask that you satisfy the following criteria:</span></p>
+
+  <p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span
+     style='font-family:Symbol;letter-spacing:-.15pt'><span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='letter-spacing:-.15pt'>You must be at least 18 years
+of age.</span></p>
+
+  <p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span
+     style='font-family:Symbol;letter-spacing:-.15pt'><span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='letter-spacing:-.15pt'>You must be willing and able
+to use a standard computer. </span></p>
+
+  <p class=MsoNormal><span style='letter-spacing:-.15pt'>&nbsp;</span></p>
+
+  <p class=MsoNormal><b><span style='letter-spacing:-.15pt'>Risks</span></b></p>
+
+  <p class=MsoNormal><span style='letter-spacing:-.15pt'>The risks and discomfort
+associated with participation in this study are no greater than those
+ordinarily encountered in daily life or during other online activities. You may
+discontinue the study at any time. </span></p>
+
+  <p class=MsoNormal><span style='letter-spacing:-.15pt'>&nbsp;</span></p>
+
+  <p class=MsoNormal><b><span style='letter-spacing:-.15pt'>Benefits</span></b></p>
+
+  <p class=MsoNormal><span style='letter-spacing:-.15pt'>There may be no personal
+benefit from your participation in the study. The knowledge generated in this
+research may be of value to humanity.</span></p>
+
+  <p class=MsoNormal><span style='letter-spacing:-.15pt'>&nbsp;</span></p>
+
+  <p class=MsoNormal><b><span style='letter-spacing:-.15pt'>Compensation &amp; Costs</span></b></p>
+
+  <p class=MsoNormal><span style='letter-spacing:-.15pt'>Participants will be
+compensated 10 cents for waiting for a partner and $2 for the entire task.</span></p>
+
+  <p class=MsoNormal><span style='letter-spacing:-.15pt'>&nbsp;</span></p>
+
+  <p class=MsoNormal><b><span style='letter-spacing:-.15pt'>Confidentiality</span></b></p>
+
+  <p class=MsoNormal><span style='letter-spacing:-.15pt'>The physical and
+electronic records of this study will be kept private. All the collected
+designs and critiques will be anonymized in any publication. Subjects names
+are not recorded with their responses. In any report that we might publish, we
+will not include any information that will make it possible to identify a
+subject. Records will be kept in a locked file in a locked office or on a
+secure computer system; only researchers named on this form will have access to
+the records.</span></p>
+
+  <p class=MsoNormal><span style='letter-spacing:-.15pt'>&nbsp;</span></p>
+
+  <p class=MsoNormal style='margin-right:-10.0pt;text-autospace:none'><b>Right to
+    Ask Questions &amp; Contact Information</b></p>
+
+  <p class=MsoNormal style='margin-right:-10.0pt;text-autospace:none'>If you have
+    any questions about this study, please ask them now. If you have questions
+    later, desire additional information, or wish to withdraw participation please
+    contact:</p>
+
+  <p class=MsoNormal style='text-align:justify;page-break-after:avoid'>&nbsp;</p>
+
+  <p class=MsoNormal style='text-align:justify;page-break-after:avoid'> <span
+     style='color:black'>Steven Dow</span></p>
+
+  <p class=MsoNormal style='text-align:justify;page-break-after:avoid'><span
+     style='color:black'> Cognitive Science Department (CSD l53)</span></p>
+
+  <p class=MsoNormal style='text-align:justify;page-break-after:avoid'><span
+     style='color:black'> UC San Diego</span></p>
+
+  <p class=MsoNormal style='text-align:justify;page-break-after:avoid'><span
+     style='color:black'> La Jolla, CA 15213</span></p>
+
+
+  <p class=MsoNormal style='text-align:justify;page-break-after:avoid'><span>
+     style='color:black'> designexperiments@gmail.com</span></p>
+
+  <p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+  <p class=MsoNormal>If you have questions pertaining to your rights as a
+    research participant; or to report objections to this study, please contact:</p>
+
+  <p class=MsoNormal style='text-align:justify'>&nbsp;</p>
+
+  <p class=MsoNormal style='text-align:justify'> Chair</p>
+
+  <p class=MsoNormal style='text-align:justify'> University of
+    California, San Diego </p>
+
+  <p class=MsoNormal style='text-align:justify'>  Human Research
+    Protections Program </p>
+
+  <p class=MsoNormal style='text-align:justify'>  9500 Gilman Drive,
+    Mail Code 0052 </p>
+
+  <p class=MsoNormal style='text-align:justify'>  La Jolla, California,
+    92093-0052</p>
+
+  <p class=MsoNormal style='text-align:justify'> Email: hrpp@ucsd.edu</p>
+
+  <p class=MsoNormal style='text-align:justify'> 858-657-5100</p>
+
+  <p class=MsoNormal><span style='letter-spacing:-.15pt'>&nbsp;</span></p>
+
+  <p class=MsoNormal><span style='letter-spacing:-.15pt'>The UC San Diego Human
+Research Protections Program (HRPP) has approved the use of human participants
+for this study. </span></p>
+
+  <p class=MsoNormal><b>&nbsp;</b></p>
+
+  <p class=MsoNormal>&nbsp;</p>
+
+  <p class=MsoNormal><b><span style='letter-spacing:-.15pt'>Voluntary Consent</span></b></p>
+
+  <p class=MsoNormal><span style='letter-spacing:-.15pt'>&nbsp;</span></p>
+
+  <p class=MsoNormal><span style='letter-spacing:-.15pt'>By entering your mturkID above, you
+agree that the above information has been explained to you and all your current
+questions have been answered. You understand that you may ask questions about
+any aspect of this research study during the course of the study and in the
+future. By entering your mturkID, you agree to participate in this research
+study. </span></p>
+
+</div>
+  </div>
+  </section>
+
+</body>
+
+
+

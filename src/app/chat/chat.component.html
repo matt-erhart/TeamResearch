@@ -1,0 +1,70 @@
+<body>
+<section class="panel panel-primary">
+    <div class="panel-heading">
+      Instructions: Team Work
+    </div>
+    <div class="panel-body" [innerHTML]="instructionsTop">
+    </div>
+</section>
+
+<div class="flex-container" style="height: 60vh">
+
+  <section class="chat panel panel-primary">
+    <div class="panel-heading">
+      Chat: <span>  </span> </div>
+
+    <div class="panel-body" #scrollMe style="overflow-y: scroll; height: 60vh; padding-bottom: 30px;">
+      <div *ngFor="let message of chatMessages$ | async ">
+        <div class="bubble" [ngClass]="{me:   message.userKey === userKey,
+        you:  message.userKey !== userKey}">
+          <p>{{message.message}}</p>
+        </div>
+      </div>
+
+    </div>
+    <div><input placeholder="Send a message here."  class="panel-footer form-control"
+           type="text"  #chatMessage
+           (keyup.enter)="onMessageEnter(chatMessage.value); chatMessage.value=''"></div>
+  </section>
+
+  <section class="right">
+    <section style="flex:1;" class="panel panel-primary" *ngFor="let subject of ideas; let i = index;">
+      <div class="panel-heading centered-text" style="flex:0;"
+      [class.right--your-ideas]="i===0"
+      [class.right--their-ideas]="i===1">
+        <span *ngIf="i===0">Your Partner's Ideas</span>
+        <span *ngIf="i===1">Your Ideas</span>
+      </div>
+
+      <div class="panel-body" >
+        <ul>
+          <li *ngFor="let idea of subject">
+            {{idea}}
+            <hr style="margin: 3px">
+          </li>
+        </ul>
+      </div>
+    </section>
+  </section>
+
+  <div class="bottom">
+  <section class="panel panel-primary">
+    <div class="panel-heading" style="flex:0;">
+      <span *ngIf="!timesUp">Submit best idea here in {{secondsLeft/60 | number:'1.2-2'}} minutes.</span>
+      <h3 *ngIf="timesUp">Now only one person submits best idea for team to continue.</h3>
+    </div>
+    <div class="panel-body" style="flex:1;">
+      <div>Your team's best idea: {{finalAnswer}}</div>
+      <input placeholder="One person puts best idea here." class="form-control"
+             type="textarea"  #bestIdea
+              style="width:100%; height: 30px;">
+      <input type="button" class="btn btn-success"
+             style="width:100%; height: 30px;" value="Submit" (click)="onSubmit(bestIdea.value)">
+    </div>
+  </section>
+    </div>
+
+</div>
+May need to type something for page to load.
+</body>
+

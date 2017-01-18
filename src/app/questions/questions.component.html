@@ -1,0 +1,31 @@
+<body>
+<section class="panel panel-primary" style="margin-bottom: 8px">
+  <div class="panel-heading">
+    Survey
+  </div>
+  <div class="panel-body">
+    <div [innerHTML]="instructions"></div>
+    <div class="well center_outer flex-container"
+         *ngFor="let question of questions; let q = index"
+         [style.background]="grid_colors[q]" >
+      <div style="flex-grow: 1">{{question}}</div>
+      <div class="btn-group" style="align-self: center; margin-bottom: auto">
+        <label *ngFor="let option of answer_format[q]; let i = index"
+               class="btn btn-primary"
+               [(ngModel)]="answers[q]"
+               (ngModelChange)="onChange(q)"
+               [btnRadio]="option"
+               tooltipPlacement="bottom"
+               [tooltip]="answer_tooltip[q][i]"
+               style="font-size:1.5rem; padding: 5px 10px; ">
+          {{option}}
+        </label>
+      </div>
+    </div>
+  </div>
+  <br>
+</section>
+
+<input type="button" class="btn btn-success"
+       style="width:100%; height: 50px;" [value]="submitButtonText"
+       (click)="onSubmit()" [disabled]="!all_answered">

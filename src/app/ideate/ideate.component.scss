@@ -1,0 +1,25 @@
+@import "../shared/variables";
+
+@mixin max-width($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+body {
+  max-width: $max-width; //imported
+  margin:    0 auto;
+}
+
+.panel, .btn {
+  margin: 0;
+  padding: 0;
+}
+
+.centered-text {
+  text-align: center;
+}
+
+.panel-heading {
+  font-size: $header-font-size;
+}

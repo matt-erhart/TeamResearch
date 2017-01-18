@@ -1,0 +1,38 @@
+<body>
+<section *ngIf="show" class="panel panel-primary" style="margin-bottom: 8px">
+  <div class="panel-heading">
+    One last thing and you're done!
+  </div>
+  <div class="panel-body" [innerHTML]="instructionsTop"></div>
+
+
+  <div class="form-group" >
+    <label for="improve">How, specifically, could we improve the task, interface, or instructions for future users?</label>
+
+    <textarea required class="form-control" rows="2" id="improve"
+              [(ngModel)]="feedback"
+              name="feedback_input"
+              #feedback_input="ngModel" minlength="2"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="good">What did you like most about the task?</label>
+    <textarea required class="form-control" rows="2" id="good"
+              [(ngModel)]="thegood"
+              name="thegood_input"
+              #thegood_input="ngModel" minlength="2"
+    ></textarea>
+  </div>
+
+  <div  style="font-size:4rem; text-align: center;">
+    <input [disabled]="!thegood_input.valid || !feedback_input.valid" type="button" class="btn btn-success"
+           style="width:100%; height: 50px;"
+           value="Write at least 20 letters (1-2 sentences) for each question. Then, click here to finish."
+           (click)="nextPage(feedback_input, thegood_input); ready2submit=true">
+  </div>
+
+</section>
+<h1 *ngIf="ready2submit">Thanks! You're all done. We will use your turkID to issue the full bonus.
+  Make sure you have accepted/submitted the HIT so we can find you in the Amazon system. You can close this page now.</h1>
+
+</body>

@@ -1,0 +1,45 @@
+<body>
+<section class="panel panel-primary" style="margin-bottom: 8px">
+  <div class="panel-heading">
+    Brainstorming Challenge
+  </div>
+  <div class="panel-body" [innerHTML]="instructionsTop">
+  </div>
+</section>
+
+<section class="panel panel-primary">
+  <div class="panel-heading">
+    Write up ideas
+  </div>
+  <div class="panel-body">
+    <input placeholder="Write one idea at a time here. Press enter to submit each idea. Make sure they are in the form of a question."
+           type="text" class="form-control" id="ideaInput" style="height: 50px;"
+           #idea (keyup.enter)="onEnter(idea.value); idea.value=''">
+    <div  style="font-size:4rem; text-align: center;">
+      {{numIdeas}} ideas submitted. {{secondsLeft/60 | number:'1.2-2'}} minutes left.
+    </div>
+  </div>
+</section>
+
+
+<section class="panel panel-primary" *ngIf="timesUp">
+  <div class="panel-heading">
+    Now select {{numIdeas2Select}} ideas to share with your partner
+  </div>
+  <div class="panel-body input-controls">
+
+      <label class="well" *ngFor="let idea of ideas.text; let i = index">
+        <input #{{idea.id}} type="checkbox" name="checkbox" value="value"
+               (ngModelChange)="onChange(i,$event)" [(ngModel)]="ideas.favorite[i]">
+        {{idea}}
+      </label>
+   </div>
+
+  <input *ngIf="ready2submit" type="button" class="btn btn-success"
+                 style="width:100%; height: 50px;" (click)="onSubmit()"
+                 value="You now have {{numIdeas2Select}} ideas selected.
+    Click here when you are ready to continue.">
+
+
+</section>
+May need to type something or wait a few seconds for this page to load.
